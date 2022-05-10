@@ -1,10 +1,11 @@
 import React from "react";
+import Card from "./Card";
 import ExpenseItem from "./ExpenseItem";
 import './Expenses.css';
 
 const Expenses = (props) => {
   return (
-    <div className="expenses">
+    <Card className="expenses">
       <ExpenseItem
         title={props.expense[0].title}
         amount={props.expense[0].amount}
@@ -25,7 +26,7 @@ const Expenses = (props) => {
         amount={props.expense[3].amount}
         date={props.expense[3].date}
       />
-     </div>
+     </Card>
   );
 };
 
