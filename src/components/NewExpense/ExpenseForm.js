@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import "./ExpenseForm.css";
 
 const ExpenseForm = (props) => {
-  const [enteredTitle, setenteredTitle] = useState("");
-  const [enteredAmount, setenteredAmount] = useState("");
-  const [enteredDate, setenteredDate] = useState("");
+  const [enteredTitle, setenteredTitle] = useState('');
+  const [enteredAmount, setenteredAmount] = useState('');
+  const [enteredDate, setenteredDate] = useState('');
 
   //   const [userInput, setuserInput] = useState({
   //     enteredTitle: "",
@@ -40,9 +40,9 @@ const ExpenseForm = (props) => {
     const expenseData = {
       title: enteredTitle,
       amount: enteredAmount,
-      date: new Date(enteredDate),
+      date: new Date(enteredDate.replace(/-/g, '/')),
     };
-    // console.log(expenseData);
+    // console.log(expenseData.date);
     props.onSaveExpenseData(expenseData);
     setenteredTitle('');
     setenteredAmount('');
@@ -74,8 +74,8 @@ const ExpenseForm = (props) => {
           <input
             type="date"
             value={enteredDate}
-            min="2019-01-01"
-            max="2032-12-31"
+            min="01-01-2019"
+            max="12-31-2022"
             onChange={dateChangeHandler}
           />
         </div>
